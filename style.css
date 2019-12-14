@@ -35,25 +35,50 @@
     pointer-events: none;
 }
 
-.time-container{
-    background-color: lightcyan;
-}
 
-.sound-container{
-    background-color:lightsalmon;
-}
-
-.player-container{
-    background-color:lightsteelblue;
-}
 
 .time-display{
     position: absolute;
     bottom: 10%;
-    color: black;
+    color: white;
     font: 50px;
 }
 
 video{
-    display: none;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    z-index: -10;
+}
+
+.time-container button,
+.sound-container button {
+    color: white;
+    width: 30%;
+    height: 10%;
+    background: none;
+    border: 2px solid white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: all 0.5s ease;
+}
+
+.time-container button:hover {
+    color: black;
+    background: white;
+}
+
+.sound-container button{
+    border: none;
+    height: 120px;
+    width: 120px;
+}
+
+.sound-container button:nth-child(1){
+    background: whitesmoke;
+}
+.sound-container button:nth-child(2){
+    background: whitesmoke;
 }
