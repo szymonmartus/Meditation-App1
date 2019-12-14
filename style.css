@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.app{
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.time-container, 
+.sound-container,
+.player-container {
+    height: 80%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.player-container{
+    position: relative;
+}
+
+.player-container svg{
+    position: absolute;
+    height: 30%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.time-container{
+    background-color: lightcyan;
+}
+
+.sound-container{
+    background-color:lightsalmon;
+}
+
+.player-container{
+    background-color:lightsteelblue;
+}
+
+.time-display{
+    position: absolute;
+    bottom: 10%;
+    color: black;
+    font: 50px;
+}
+
+video{
+    display: none;
+}
