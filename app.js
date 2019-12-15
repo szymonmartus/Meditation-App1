@@ -4,24 +4,37 @@ const app = () => {
     const outline = document.querySelector('.moving-outline circle');
     const video = document.querySelector('.video-container video');
 
+
     //Sounds
     const sounds = document.querySelectorAll('.sound-container button');
 
     //Time display
     const timeDisplay = document.querySelector('.time-display');
+    const timeSelect = document.querySelectorAll('.time-container button');
 
     //Get the length of the outline
     const outlineLength = outline.getTotalLength();
     
     //Duration
-    let fakeDuration = 600;
+    let fakeDuration = 540;
 
-    outline.getElementsByClassName.strokeDasharray = outlineLength;
+    outline.style.strokeDasharray = outlineLength;
     outline.style.strokeDashoffset = outlineLength;
 
     //Play sound
     play.addEventListener('click', () =>{
         checkPlaying(song);
+    });
+
+    //Select sound
+    timeSelect.forEach(option =>{
+        option.addEventListener('click', function(){
+            //getting the data from index.html
+            fakeDuration = this.getAttribute("data-time");
+
+            timeDisplay.textContent = `${Math.floor(fakeDuration / 60)}:${Math.floor(fakeDuration % 60)}`;
+        });
+            
     });
 
     //Function to stop & play the sounds
@@ -33,9 +46,30 @@ const app = () => {
     } else{
         song.pause();
         video.pause();
-        play.src = './svg/play.svg'
+        play.src = './svg/play.svg';
     }
-    }
+    };
+
+    //Animate circle
+    song.ontimeupdate = () => {
+        let currentTime = song.currentTime;
+        let elapsed = fakeDuration - currentTime;
+        let seconds = Math.floor(elapsed % 60);
+        let minutes = Math.floor(elapsed / 60);
+
+        let progress = outlineLength - (currentTime / fakeDuration) * outlineLength;
+        outline.style.strokeDashoffset = progress;
+
+        //Animate the text
+        timeDisplay.textContent = `${minutes}:${seconds}`;
+
+        if(currentTime >= fakeDuration){
+            song.pause();
+            song.currentTime = 0;
+            video.pause();
+            play.src = './svg/play.svg';
+        }
+    };
 };
 
 app();

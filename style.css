@@ -24,6 +24,7 @@
 
 .player-container{
     position: relative;
+    
 }
 
 .player-container svg{
@@ -33,6 +34,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     pointer-events: none;
+    
 }
 
 
@@ -71,14 +73,13 @@ video{
 }
 
 .sound-container button{
-    border: none;
     height: 120px;
     width: 120px;
 }
 
 .sound-container button:nth-child(1){
-    background: whitesmoke;
+    background: none;
 }
 .sound-container button:nth-child(2){
-    background: whitesmoke;
+    background: none;
 }
