@@ -5,6 +5,7 @@ const app = () => {
     const video = document.querySelector('.video-container video');
 
 
+
     //Sounds
     const sounds = document.querySelectorAll('.sound-container button');
 
@@ -21,12 +22,23 @@ const app = () => {
     outline.style.strokeDasharray = outlineLength;
     outline.style.strokeDashoffset = outlineLength;
 
+    //Select sounds
+    sounds.forEach(sound => {
+        sound.addEventListener('click', function(){
+            song.src = this.getAttribute('data-sound');
+            video.src = this.getAttribute('data-video');
+            checkPlaying(song);
+        });
+    });
+
     //Play sound
     play.addEventListener('click', () =>{
         checkPlaying(song);
     });
 
-    //Select sound
+    
+
+    //Select time
     timeSelect.forEach(option =>{
         option.addEventListener('click', function(){
             //getting the data from index.html
@@ -36,6 +48,8 @@ const app = () => {
         });
             
     });
+
+   
 
     //Function to stop & play the sounds
     const checkPlaying = song =>{
@@ -48,7 +62,9 @@ const app = () => {
         video.pause();
         play.src = './svg/play.svg';
     }
+    
     };
+    
 
     //Animate circle
     song.ontimeupdate = () => {
@@ -69,7 +85,18 @@ const app = () => {
             video.pause();
             play.src = './svg/play.svg';
         }
-    };
+
+   };
+
+     //Loop
+     song.addEventListener('ended', function(){
+        song.currentTime = 0;
+        song.play();
+    }, false);
+
+    
+
+    
 };
 
 app();

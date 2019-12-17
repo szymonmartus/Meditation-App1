@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="./style.css">
     <title>Document</title>
 </head>
@@ -24,14 +25,16 @@
         </div>
 
         <div class="player-container">
-            <audio class="song">
-                <source src="./sounds/ambient.mp3" />        
-            </audio>
+            <audio class="song">               
+                    <source src="./sounds/ambient.mp3" /> 
+             </audio>
+
             <img src="./svg/play.svg" alt="play" class="play" />
             <svg class="track-outline"
              width="453" height="453" viewBox="0 0 453 453" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="226.5" cy="226.5" r="216.5" stroke="white" stroke-width="20"/>
             </svg>
+
             <svg class="moving-outline"
                 width="453" height="453" viewBox="0 0 453 453" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="226.5" cy="226.5" r="216.5" stroke="#018EBA" stroke-width="20"/>
@@ -41,13 +44,15 @@
         </div>
         
         <div class="sound-container">
+            <sound id="ambient">
             <button data-sound="./sounds/ambient.mp3" data-video="./videos/ambient.mp4">
             <img src="./svg/ambient.svg" alt="ambient" />
-            </button>
-            <button data-sound="./sounds/meditation.mp3" data-video="./videos/ambient.mp4">
-                <img src="./svg/nature.svg" alt="nature" />
-                </button>
+            </button></sound>
 
+            <sound id="nature">
+            <button data-sound="./sounds/nature.mp3" data-video="./videos/nature.mov">
+                <img src="./svg/nature.svg" alt="nature" />
+                </button></sound>
             
         </div>
 
